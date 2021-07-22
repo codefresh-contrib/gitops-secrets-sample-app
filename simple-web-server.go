@@ -13,6 +13,7 @@ type configurationListHandler struct {
 	publicKeyPath  string
 	paypalURL      string
 	paypalCertPath string
+	dbCon          string
 	dbUser         string
 	dbPassword     string
 }
@@ -25,6 +26,7 @@ func (h *configurationListHandler) ServeHTTP(w http.ResponseWriter, r *http.Requ
 	fmt.Fprintf(w, "<li>public_key: "+h.publicKeyPath+"</li>")
 	fmt.Fprintf(w, "<li>paypal_url: "+h.paypalURL+"</li>")
 	fmt.Fprintf(w, "<li>paypal_cert: "+h.paypalCertPath+"</li>")
+	fmt.Fprintf(w, "<li>db_con: "+h.dbCon+"</li>")
 	fmt.Fprintf(w, "<li>db_user: "+h.dbUser+"</li>")
 	fmt.Fprintf(w, "<li>db_password: "+h.dbPassword+"</li>")
 	fmt.Fprintf(w, "</ol>")
@@ -51,6 +53,7 @@ func main() {
 	clh.publicKeyPath = cfg.Section("security").Key("public_key").String()
 	clh.paypalURL = cfg.Section("paypal").Key("paypal_url").String()
 	clh.paypalCertPath = cfg.Section("paypal").Key("paypal_cert").String()
+	clh.dbCon = cfg.Section("mysql").Key("db_con").String()
 	clh.dbUser = cfg.Section("mysql").Key("db_user").String()
 	clh.dbPassword = cfg.Section("mysql").Key("db_password").String()
 
