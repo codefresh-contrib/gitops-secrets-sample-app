@@ -1,0 +1,36 @@
+version: "1.0"
+stages:
+  - "clone"
+  - "test"
+  - "build"
+
+steps:
+  clone:
+    title: "Cloning repository"
+    type: "git-clone"
+    repo: "codefresh-contrib/gitops-secrets-sample-app"
+    revision: '${{CF_REVISION}}'
+    stage: "clone"
+  lint:
+    title: "Linting"
+    type: "freestyle" 
+    image: "golangci/golangci-lint" 
+    working_directory: "${{clone}}" 
+    fail_fast: false
+    commands:
+      - "golangci-lint run -v"
+    environment:
+      - GOPATH=/codefresh/volume/go
+      - CGO_ENABLED=0
+    stage: "test"
+  build:
+    title: "Building Docker image"
+    type: "build"
+    image_name: "kostiscodefresh/gitops-secrets-sample-app"
+    working_directory: "${{clone}}"
+    tags:
+    - "latest"
+    - '${{CF_SHORT_REVISION}}'
+    dockerfile: "Dockerfile"
+    stage: "build"
+    registry: dockerhub  
