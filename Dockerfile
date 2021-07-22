@@ -6,11 +6,17 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build 
 
-FROM scratch
-COPY --from=build-env /tmp/simple-go-app/helm-promotion-sample-app /app/helm-promotion-sample-app
+FROM alpine:3.13
+
+EXPOSE 8080
+
+RUN apk add --no-cache ca-certificates bash
+
+COPY --from=build-env /tmp/simple-go-app/gitops-secrets-sample-app /app/gitops-secrets-sample-app
 
 COPY settings.ini /config/settings.ini
 
+WORKDIR /app
 
-EXPOSE 8080
-CMD ["/app/helm-promotion-sample-app"]
+
+CMD ["./gitops-secrets-sample-app"]
