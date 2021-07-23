@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"net/http"
 
 	"gopkg.in/ini.v1"
@@ -20,7 +21,7 @@ type configurationListHandler struct {
 
 func (h *configurationListHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	fmt.Fprintf(w, "<h2>I am a GO application running inside Kubernetes.<h2> <h3>My properties are:</h3><ul>")
+	fmt.Fprintf(w, "<h1>I am a GO application running inside Kubernetes.</h1> <h2>My properties are:</h2><ul>")
 	fmt.Fprintf(w, "<li>app_mode: "+h.appMode+"</li>")
 	fmt.Fprintf(w, "<li>private_key: "+h.privateKeyPath+"</li>")
 	fmt.Fprintf(w, "<li>public_key: "+h.publicKeyPath+"</li>")
@@ -29,7 +30,25 @@ func (h *configurationListHandler) ServeHTTP(w http.ResponseWriter, r *http.Requ
 	fmt.Fprintf(w, "<li>db_con: "+h.dbCon+"</li>")
 	fmt.Fprintf(w, "<li>db_user: "+h.dbUser+"</li>")
 	fmt.Fprintf(w, "<li>db_password: "+h.dbPassword+"</li>")
-	fmt.Fprintf(w, "</ol>")
+	fmt.Fprintf(w, "</ul>")
+
+	fmt.Fprintf(w, "<h2> Private Signing key </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.privateKeyPath))
+
+	fmt.Fprintf(w, "<h2> Public Signing key </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.publicKeyPath))
+
+	fmt.Fprintf(w, "<h2> Paypal cert </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.paypalCertPath))
+
+	fmt.Fprintf(w, "<h2> Mysql URL </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.dbCon))
+
+	fmt.Fprintf(w, "<h2> Mysql username </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.dbUser))
+
+	fmt.Fprintf(w, "<h2> Mysql password </h2>")
+	fmt.Fprintf(w, "<pre> %s</pre>", readFileToString(h.dbPassword))
 
 }
 
@@ -57,7 +76,7 @@ func main() {
 	clh.dbUser = cfg.Section("mysql").Key("db_user").String()
 	clh.dbPassword = cfg.Section("mysql").Key("db_password").String()
 
-	fmt.Println("Simple web server is starting on port 8080...")
+	fmt.Println("Simple web server is starting now on port 8080...")
 
 	http.Handle("/", &clh)
 	http.HandleFunc("/health", healthHandler)
@@ -66,4 +85,12 @@ func main() {
 	if err != nil {
 		fmt.Printf("Failed to start server at port 8080: %v", err)
 	}
+}
+
+func readFileToString(filename string) string {
+	data, err := ioutil.ReadFile("/tmp/dat")
+	if err != nil {
+		return "Could not read" + filename
+	}
+	return string(data)
 }
