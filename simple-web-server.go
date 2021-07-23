@@ -88,9 +88,9 @@ func main() {
 }
 
 func readFileToString(filename string) string {
-	data, err := ioutil.ReadFile("/tmp/dat")
+	data, err := ioutil.ReadFile(filename)
 	if err != nil {
-		return "Could not read" + filename
+		return "Could not read " + filename
 	}
 	return string(data)
 }
