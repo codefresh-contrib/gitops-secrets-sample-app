@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: gitops-secrets-app
-        image: docker.io/kostiscodefresh/gitops-secrets-sample-app:2cd322f
+        image: docker.io/kostiscodefresh/gitops-secrets-sample-app:latest 
         imagePullPolicy: Always   
         ports:
         - containerPort: 8080
