@@ -1,0 +1,23 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "paypal-cert",
+    "namespace": "git-secrets",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "paypal-cert",
+        "namespace": "git-secrets",
+        "creationTimestamp": null
+      },
+      "type": "Opaque",
+      "data": null
+    },
+    "encryptedData": {
+      "paypal.crt": "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"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "key-private",
+    "namespace": "git-secrets",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "key-private",
+        "namespace": "git-secrets",
+        "creationTimestamp": null
+      },
+      "type": "Opaque",
+      "data": null
+    },
+    "encryptedData": {
+      "key.private": "AgCgxWHJSF7jw/7Oik3v0IFje/XPw3quzhVSolvqC9CLISvGDUOZPkdR2Ywj3dKJ6e+j+Pb5E+4SGL7XTLWxehBbGr4Ztj6h5ExcC+Nf0auDwmBunrOx7qZwDRitYbpDG5FLr4v26C30/LEdcDKI/aKb47DlQ5eilKz67BellJOq+/Nd5C4HxTwGNiwHKE9GIX4yKol6Zt5WSRSyqu1qlCwRNjqOvBH2eksi6+2+5jpFP8bKauLIVwUeFpKsc9+8bzjdbgOrC7vSZSPJgQlaqOa7xrMM7L3g/Ly2DtMw9/i80KKNTauwWB9MDEnyEsUJId6Mkyb7rR1W/dK2gaRC9wl7Vusko2P5rItslXl03vl3zE3U/E1o9rZF9eWkenJ2KVcboee4bMmQ3vFsAqNKMZDgVcOrXoZ8pFTmoRuw8NLJdsRrj2SDkZpduI0X9IZwe7/0mmAYF8E2XPinHl0lVhKOSatPGz7sN0VCZ82DH8cbJ3qxhZE+ZT8uMuevqpRjEEbetL4XUYQhTUjKMwF1vah6zGKf0eAg2WnRPHN7AFP36f7TsbRrgx3glP5/wQH7hhTZiGJv2nRVqn0dTX8VMNzQAFLalfUXqnAwrRpy47Oih6Gq98cb6LxLrfQwlEaVBNliqR4m3EsOM6nFoFugXUZjd/sqw3AXFhZ9zxLBRPcOC+srSWBfK9yu5lBl9NVHZWlT4kSF0KQ3xoUFo+agS4IIHkwZT75XumLwPWtXe/O+sCiO12z/DfgE/mkcNvIUWxG0HMePcmb9RqgMP1o7UKG3EV6DZg+ELHzeEYQZ2eiq3p/6QEXnkg4XYygziAgWlpQr0zSDWtgJT4oY9O2LNaK8eHmIb5r7PkdHyMbrLVSnudw2I9/3yIJ53z+NMxrLoMneb1bfovzkksCaA8+/AR9lCLQGw9Nc2/cIzvnOt8pgULX9y3G5SzCaVSXHDhpS/Dl46Dy8Ou4Fjyk4IDytx3MpV8p/oXdviR2kVq+jVf/2oDObspl4CdLPTL0Nj5Cukk5jx7ZB5bSM4tmXYudcuyuHAIwv+ww0o3T8L3ZYGSu0Dcsje7dfuI08b42KJmu5YdkiiAdTwePfCnafihbq9kHpiQbZt8qReFo/fUFauIFV0mUiME82pKWgeUUh1ESkWd8lKf8KnFCE3VgxEoloDVHoTDrQLPJD0qDh1yRCTyHm4EkUdn8iIjrUB8eyyr+EO7U5nJskijwWa0r0jzGq2cv/GUBsTflbIIxpw409Lmbf7whqOR2mkFFlx2xijBDqO335anypf10TXJD/gcD5E+KG3yij6P4g6l8Iiol0rrVwkfoSNa7LW9MG/Dvk5CXd2K1Fhn0SkGbWLQXNuLA63f5RakFomO0JKukGdWp8/ssIuuvLmJbFAPIyAgWnXnnsIRriWjkXEruTOs6/DDp45K5Af/YX8JgUxx4jG72Ch20rkv7KWleGs30mcpVArVH89ptrywydSEUgUIN/8ckRGxkVg6104iFrs8OEzHBrUqrNBHHx3UD71GFCqJnjRyViLVhraqVsLlN+UD5pdJhRAx67+FIlC25owmPSuuSEDkhYa26P49hEG9RRUk0RzPnjkpKDG8VUCi1m8fVNU0yPxvP9qpQqz1KKrwTY7eFh7+DKZf3S5f6MHOXZPGklpBYj1pXOH5ZYdywfy0cuKx5GvxrSA5/Stu+r4xZLPJX61otyWI8WvWdpTcv2ag0UEeGeu5nrm6L/S7LvFoZg/faE1OHbuzoSanwzRo95gyJsCRYEYzVTvoIDlYisUtH6oi69uGps91KDYDsiuUcfogL7bbHC9J3us3Ez8I4mF3OjHw4/p1b7v/e25c9pAsJbqm9ghdsdQUPi3Y539huAHX93rgn3gG0="
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "SealedSecret",
+  "apiVersion": "bitnami.com/v1alpha1",
+  "metadata": {
+    "name": "key-public",
+    "namespace": "git-secrets",
+    "creationTimestamp": null
+  },
+  "spec": {
+    "template": {
+      "metadata": {
+        "name": "key-public",
+        "namespace": "git-secrets",
+        "creationTimestamp": null
+      },
+      "type": "Opaque",
+      "data": null
+    },
+    "encryptedData": {
+      "key.pub": "AgBgaWsin5wA7VneWAup7EHyF/xf7Hn/A325TRuRn07OAGo7GYK6tzNwcHWOq517jstyWt9E0Q+s4zybPbMPollSaQJhEtWJ3JGModN9lEbCXR+TthPPg9A5SklfL6Wfs1Wt3rz+Ctp6Bjj8coqYyvUSL71slUr8O950Bd/E04WDIMOlVZPL0xP23Q/lel45Y6ByPMbJ/biqnnlELNJFrBqxEpHnCum1jgOc/eDfa4gUTdEpwEd7uqWUATO+EzLTGGl5dzNOb14GbdHOQt304u+U6FXYCclX2GGlKeJ1beOuXj7E6y9P2Jf11SXAksrc0C7Jbvzi1+MIgTPtWbd3ET1FDcLPCmyVmGvkyidNphIUBd+D/hsr9hbbSk4DFNjlog8zRY78Rv3Xky1aIpt3hC/4YWJxOlyGRH5X2sGLyXQEopuSu5zyWifSP3ihN71dyz3oI02JS6Ttvwdg5kD3Y70rYfHWuDPgbUiXUJEvdus8A8RCf4NLXVyzNRXrbUtPqXcrB5sdgmqfnt/be0XvHfmvLA+4eQIyQEP8L7i4thqZoi0guCp8lr/b1x1vgQXJdgILVXKMuvXVK1bXfq09fNtzaqTFGk112SiDSEzcWggv1K6p48yZIZ63Aw+sItmFPavsRYfECpUU7rYIuab9Vw21Y6dbEbs6ewm0+ynADbslxOD6sa2vvJRdrz6FWGClYoHuxw/USP9FESWL9Ym/69dQ4ReSG0O1QVdyW7ETj870JvG4BvTdnB4Zwhl8epeMvdB59EU+50tNvqY56FhtFuGXLLWHbY2hw1OqkaIM2q6Q9OuB4oEhepp/xptVJWfkFdEvMcyEBoMsjyXndldcsbRCFuVchsw1SMUdwl+UkxLICFuCR0XO2nn43oHNryD0pFj2PPily1A8K01J8MfD2jG1KpCUIWjM5A53Qco4jTWxiWdM4GZ32He9/uwcQJ/1eoSAYD/LYUVKU6PxiwF5l3hIG0C+ShX5/U7rQYrVduON4EHJ9NwTa9NbUbrUuMFeHQsmF6yNon4M7s5W/eZbqaKhzCs/jsue9W3NsQLC/XQG"
+    }
+  }
+}
