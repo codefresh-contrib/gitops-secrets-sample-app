@@ -27,9 +27,9 @@ secrets so that you can see the sealing process yourself. In a real application,
 
 Secret folders
 
- * `decrypted` contains the raw secrets (You should never commit this to Git)
- * `unsealed_secrets` contains plain Kubernetes secrets (You should never commit this to Git)
- * `sealed_secrets` contains sealed secrets (This is the only folder you should commit to Git)
+ * `never-commit-to-git/decrypted` contains the raw secrets (You should never commit this to Git)
+ * `never-commit-to-git/unsealed_secrets` contains plain Kubernetes secrets (You should never commit this to Git)
+ * `safe-to-commit/sealed_secrets` contains sealed secrets (This is the only folder you should commit to Git)
 
 ## How to install the Bitnami secret controller
 
@@ -56,11 +56,11 @@ sudo install -m 755 kubeseal /usr/local/bin/kubeseal
 
 ```
 kubectl create ns git-secrets
-cd sealed_secrets
-kubeseal -n git-secrets < ../unsealed_secrets/db-creds.yml > db-creds.json
-kubeseal -n git-secrets < ../unsealed_secrets/key-private.yml > key-private.json
-kubeseal -n git-secrets  < ../unsealed_secrets/key-public.yml > key-public.json
-kubeseal -n git-secrets < ../unsealed_secrets/paypal-cert.yml > paypal-cert.json
+cd safe-to-commit/sealed_secrets
+kubeseal -n git-secrets < ../../never-commit-to-git/unsealed_secrets/db-creds.yml > db-creds.json
+kubeseal -n git-secrets < ../../never-commit-to-git/unsealed_secrets/key-private.yml > key-private.json
+kubeseal -n git-secrets  < ../../never-commit-to-git/unsealed_secrets/key-public.yml > key-public.json
+kubeseal -n git-secrets < ../../never-commit-to-git/unsealed_secrets/paypal-cert.yml > paypal-cert.json
 kubectl apply -f . -n git-secrets
 ```
 
@@ -76,7 +76,7 @@ kubectl get secrets -n git-secrets
 Note that the application requires all secrets to be present
 
 ```
-cd ../manifests
+cd safe-to-commit/manifests
 kubectl apply -f . -n git-secrets
 ```
 
